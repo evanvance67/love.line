@@ -16,29 +16,19 @@ client.on(Events.GuildMemberAdd, async member => {
             : null;
 
         const embed = new EmbedBuilder()
-            .setColor('#F4A7C5')
+            .setColor('#F46CAE')
             .setDescription(
-                '˚ ༘♡ ⋆｡˚\n' +
-                `🌸 / welcome to our shop, **${member.user.username}**!\n` +
+                '_ _        . 　__ʚɞ__۫ ׅ     :         <:111cherryflower:1563743628411539628> \n' +
+                `-# _ _ <a:32525325:1564654610856157214> ／  𓏼ωᥱℓᥴ tꪮ ꪮur **shꪮp**, ${member}﹒\n` +
                 (verifyLink
-                    ? `🎀 : [verify-here!](${verifyLink})`
+                    ? `> -# _ _   <a:021pinkbowrz:1570774209922207897>.  ： [vꫀr͟ιfყ-hꫀrꫀ](${verifyLink}) *!*\n`
                     : '')
             )
-            .setThumbnail(member.user.displayAvatarURL({
-                extension: 'png',
-                size: 256
-            }))
-            .addFields({
-                name: '♡ member',
-                value: `#${member.guild.memberCount} · love.line!`,
-                inline: true
-            })
-            .setFooter({
-                text: 'thank you for joining us ♡'
-            });
+            .setThumbnail(
+                'https://cdn.discordapp.com/attachments/1568566280896909402/1571887315331190855/Untitled446_20261101185649.png?ex=6b00fae4&is=6affa964&hm=3a9b4a2fa4240d0965ac4d6b254ce91429df84c4b45b6b525c1cc2e66a473e62&'
+            );
 
         await welcomeChannel.send({
-            content: `Welcome, ${member}!`,
             embeds: [embed]
         });
 
