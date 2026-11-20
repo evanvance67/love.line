@@ -30,8 +30,6 @@ export default {
                     PermissionFlagsBits.ViewChannel,
                     PermissionFlagsBits.SendMessages
                 ])) {
-                    const formatData = { user, guild, member };
-
                     const welcomeTemplate =
                         '_ _        . 　__ʚɞ__۫ ׅ     :         <:111cherryflower:1563743628411539628>\n' +
                         '-# _ _ <a:32525325:1564654610856157214> ／  𓏼ωᥱℓᥴ tꪮ ꪮur **shꪮp**, {user}﹒\n' +
@@ -39,7 +37,7 @@ export default {
 
                     const welcomeMessage = formatWelcomeMessage(
                         welcomeTemplate,
-                        formatData
+                        { user, guild, member }
                     );
 
                     const messageContent = welcomeConfig.welcomePing
@@ -56,21 +54,11 @@ export default {
                         });
                     } else {
                         const embed = new EmbedBuilder()
-                            .setColor('#FFE8F1')
+                            .setColor('#F46CAE')
                             .setDescription(welcomeMessage)
                             .setThumbnail(
-                                'https://cdn.discordapp.com/attachments/1568566280896909402/1571887315331190855/Untitled446_20261101185649.png?ex=6afc5da4&is=6afb0c24&hm=4418eb6b685dda8d4725cc8590230aaa5d75e73e4dea9f8eda7cbdac02bbd750&'
-                            )
-                            .setFooter({
-                                text: `Member #${guild.memberCount} • love.line!`
-                            })
-                            .setTimestamp();
-
-                        if (welcomeConfig.welcomeImage) {
-                            embed.setImage(welcomeConfig.welcomeImage);
-                        } else if (welcomeConfig.welcomeEmbed?.image?.url) {
-                            embed.setImage(welcomeConfig.welcomeEmbed.image.url);
-                        }
+                                'https://cdn.discordapp.com/attachments/1568566280896909402/1571887315331190855/Untitled446_20261101185649.png?ex=6b00fae4&is=6affa964&hm=3a9b4a2fa4240d0965ac4d6b254ce91429df84c4b45b6b525c1cc2e66a473e62&'
+                            );
 
                         await channel.send({
                             content: messageContent,
